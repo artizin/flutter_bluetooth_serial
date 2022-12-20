@@ -451,10 +451,13 @@ public class FlutterBluetoothSerialPlugin implements FlutterPlugin, ActivityAwar
                         == PackageManager.PERMISSION_GRANTED
                 && ContextCompat.checkSelfPermission(activity,
                         Manifest.permission.ACCESS_FINE_LOCATION)
-                        == PackageManager.PERMISSION_GRANTED);
+                        == PackageManager.PERMISSION_GRANTED 
+                && ContextCompat.checkSelfPermission(activity,
+                            Manifest.permission.BLUETOOTH_SCAN)
+                            == PackageManager.PERMISSION_GRANTED);
 
         String[] requestString = new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,
-                Manifest.permission.ACCESS_FINE_LOCATION};
+                Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.BLUETOOTH_SCAN};
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             permissionGranted = (
